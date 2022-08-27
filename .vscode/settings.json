@@ -1,6 +1,14 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "socket.h": "c",
+        "types.h": "c",
+        "unistd.h": "c",
+        "in.h": "c",
+        "errno.h": "c",
+        "cstdio": "c",
+        "*.tcc": "c",
+        "inet.h": "c"
     }
 }

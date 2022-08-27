@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <winsock.h>
+
 void swap(int *a, int *b)
 {
     int temp;
