@@ -9,6 +9,7 @@
         "errno.h": "c",
         "cstdio": "c",
         "*.tcc": "c",
-        "inet.h": "c"
+        "inet.h": "c",
+        "ip.h": "c"
     }
 }

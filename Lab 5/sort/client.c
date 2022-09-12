@@ -5,7 +5,6 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-// Driver code
 int main(int argc, char *argv[])
 {
     int sock;
@@ -13,7 +12,6 @@ int main(int argc, char *argv[])
     int server_reply[6];
     int number[6] = {30, 10, 50, 8, 9, 20}, i, temp;
 
-    // Create socket
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1)
     {
@@ -25,7 +23,6 @@ int main(int argc, char *argv[])
     server.sin_family = AF_INET;
     server.sin_port = htons(8080);
 
-    // Connect to remote server
     if (connect(sock, (struct sockaddr *)&server, sizeof(server)) < 0)
     {
         perror("connect failed. Error");
@@ -40,7 +37,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Receive a reply from the server
     if (recv(sock, &server_reply, 6 * sizeof(int), 0) < 0)
     {
         puts("recv failed");
@@ -53,7 +49,6 @@ int main(int argc, char *argv[])
         printf("%d\n", server_reply[i]);
     }
 
-    // close the socket
     close(sock);
     return 0;
 }

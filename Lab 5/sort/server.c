@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
     listen(socket_desc, 3);
 
-    puts("Waiting for incoming connections...");
+    puts("Waiting for incoming connection");
     c = sizeof(struct sockaddr_in);
 
     client_sock = accept(socket_desc, (struct sockaddr *)&client, (socklen_t *)&c);
@@ -47,8 +47,7 @@ int main(int argc, char *argv[])
 
     puts("Connection accepted");
 
-    // Receive a message from client
-    while ((read_size = recv(client_sock, &message, 10 * sizeof(int), 0)) > 0)
+    while ((read_size = recv(client_sock, &message, 6 * sizeof(int), 0)) > 0)
     {
 
         bubble_sort(message, 6);
@@ -68,7 +67,6 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// Function to sort the array
 void bubble_sort(int list[], int n)
 {
     int c, d, t;
