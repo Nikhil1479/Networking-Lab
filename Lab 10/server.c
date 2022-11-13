@@ -4,41 +4,42 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-void delete (int *A, int);
-void oddNo(int *list, int n);
-void oddNo(int *list, int n)
+// void delete (int *A, int);
+void oddNo(int list[], int newList[], int n);
+void oddNo(int list[], int newList[], int n)
 {
-    for (int i = 0; i < n - 1; i++)
+    // int newList[n];
+    for (int i = 0; i < n; i++)
     {
         if (list[i] % 2 != 0)
         {
-            delete (list, i);
+            newList[i] = list[i];
         }
     }
 }
 
-void delete (int *A, int index)
-{
-    int x, i;
+// void delete (int *A, int index)
+// {
+//     int x, i;
 
-    x = A[index];
-    if (index >= 0 && index <= 6)
-    {
-        for (i = index; i < 6; i++)
-        {
-            A[i] = A[i + 1];
-        }
-    }
-    else
-    {
-        printf("\nInvalid Index");
-    }
-}
+//     x = A[index];
+//     if (index >= 0 && index <= 6)
+//     {
+//         for (i = index; i < 6; i++)
+//         {
+//             A[i] = A[i + 1];
+//         }
+//     }
+//     else
+//     {
+//         printf("\nInvalid Index");
+//     }
+// }
 int main(int argc, char *argv[])
 {
     int socket_desc, client_sock, c, read_size;
     struct sockaddr_in server, client;
-    int message[6], i;
+    int message[6], newList[6], i;
 
     socket_desc = socket(AF_INET, SOCK_STREAM, 0);
     if (socket_desc == -1)
@@ -77,9 +78,9 @@ int main(int argc, char *argv[])
     while ((read_size = recv(client_sock, &message, 6 * sizeof(int), 0)) > 0)
     {
 
-        oddNo(&message, 6);
+        oddNo(&message, &newList, 6);
 
-        write(client_sock, &message, 6 * sizeof(int));
+        write(client_sock, &newList, sizeof(int));
     }
 
     if (read_size == 0)
