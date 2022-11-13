@@ -10,6 +10,11 @@
         "cstdio": "c",
         "*.tcc": "c",
         "inet.h": "c",
-        "ip.h": "c"
+        "ip.h": "c",
+        "cstring": "c",
+        "string_view": "c",
+        "shared_mutex": "c",
+        "functional": "c",
+        "regex": "c"
     }
 }

@@ -12,7 +12,7 @@
 int main()
 {
     int sockfd;
-    struct sockaddr_in their_addr;
+    struct sockaddr_in client_addr;
     int numbytes;
     char arg[30];
 
@@ -22,15 +22,15 @@ int main()
     else
         printf("\t Success");
 
-    their_addr.sin_family = AF_INET;
-    their_addr.sin_port = htons(SERVERPORT);
-    their_addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // loopback address
+    client_addr.sin_family = AF_INET;
+    client_addr.sin_port = htons(SERVERPORT);
+    client_addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // loopback address
 
     printf(" Enter a Message : ");
     gets(arg);
 
-    sendto(sockfd, arg, strlen(arg), 0, (struct sockaddr *)&their_addr, sizeof their_addr);
-    printf("\n\t Sent Bytes to %s\n", inet_ntoa(their_addr.sin_addr)); // inet_ntoa -> helps to find out how many bytes are send
+    sendto(sockfd, arg, strlen(arg), 0, (struct sockaddr *)&client_addr, sizeof client_addr);
+    printf("\n\t Sent Bytes to %s\n", inet_ntoa(client_addr.sin_addr)); // inet_ntoa -> helps to find out how many bytes are send
     close(sockfd);
     return 0;
 }

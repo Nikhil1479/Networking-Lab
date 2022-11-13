@@ -4,12 +4,12 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <errno.h>
-// #include <sys/socket.h>
-// #include <netinet/in.h>
-// #include <netinet/ip.h>
-// #include <arpa/inet.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <arpa/inet.h>
 #include <fcntl.h>
-#include <winsock2.h>
+// #include <winsock2.h>
 
 int main(int argc, char *argv[])
 {

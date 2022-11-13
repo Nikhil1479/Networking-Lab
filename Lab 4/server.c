@@ -3,10 +3,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
-// #include <sys/socket.h>
-// #include <arpa/inet.h>
-// #include <netinet/in.h>
-#include <winsock2.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+// #include <winsock2.h>
 
 #define PORT 8080
 #define MAXLINE 1024
@@ -45,11 +45,11 @@ int main()
     int len, n;
 
     len = sizeof(cliaddr); // len is value/result
-    buffer[n] = '\0';
 
     n = recvfrom(sockfd, (char *)buffer, MAXLINE,
                  MSG_WAITALL, (struct sockaddr *)&cliaddr,
                  &len);
+    buffer[n] = '\0';
     printf("Client : %s\n", buffer);
 
     printf("Enter message:");
