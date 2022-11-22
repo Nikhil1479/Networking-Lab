@@ -13,7 +13,7 @@ int main()
 {
     int sockfd, fdl, i, length;
     char buf[100];
-    struct sockaddr_in sa, tal;
+    struct sockaddr_in sa, ztal;
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -27,7 +27,7 @@ int main()
     listen(sockfd, 5);
 
     // length = sizeof(sa);
-    fdl = accept(sockfd, (struct sockaddr *)&tal, &length);
+    fdl = accept(sockfd, (struct sockaddr *)&ztal, &length);
 
     for (i = 0; i < 100; i++)
     {
